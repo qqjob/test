@@ -1,0 +1,18 @@
+class Solution {
+
+    /**
+     * @param Integer $x
+     * @return Integer
+     */
+    function reverse($x) {
+        $pow = pow(2, 31);
+        if ($x >= -$pow || $x <= $pow) {
+            $numn = (int)strrev(abs($x));
+            $numn=$x < 0 ?-$numn : $numn; 
+            if ($numn < -$pow || $numn > $pow) {
+                $numn = 0;
+            }
+        }
+        return $numn ?? 0;
+    }
+}
