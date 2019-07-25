@@ -8,7 +8,7 @@ class Solution {
         $pow = pow(2, 31);       
         $numn = (int)strrev(abs($x));
         $numn=$x < 0 ?-$numn : $numn; 
-        if ($numn < -$pow || $numn > $pow) {
+        if ($numn < -$pow || $numn > $pow-1) {
             $numn = 0;
         }
         return $numn ?? 0;
