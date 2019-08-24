@@ -1,0 +1,28 @@
+class Solution {
+
+    /**
+     * @param String[] $strs
+     * @return String
+     */
+    function longestCommonPrefix($strs) {
+        $publicStr='';
+        if(empty($strs)){
+            return $publicStr;
+        }
+        $publicStr=$strs[0];
+        array_shift($strs);
+        
+        foreach($strs as $str){
+            $public='';   
+            for($i=0;$i<strlen($publicStr);$i++){
+                if(isset($str[$i]) && $str[$i] == $publicStr[$i]){
+                    $public .= $publicStr[$i];       
+                }else{
+                    break;
+                }
+            }  
+            $publicStr=$public;
+        }
+        return $publicStr;
+    }
+}
