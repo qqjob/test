@@ -1,0 +1,30 @@
+class Solution
+{
+
+    /**
+     * @param String $s
+     *
+     * @return Boolean
+     */
+    function isValid($s)
+    {
+        if(empty($s)){
+           return true;
+        }
+        $a = ['(' => ')', '{' => '}', '[' => ']'];
+        $aTmp=[];
+        for ($i = 0; $i < strlen($s); $i++) {
+            if(isset($a[$s[$i]])){
+                $aTmp[]=$a[$s[$i]];
+            }else{
+                $tmp=array_pop($aTmp);
+                if($tmp!=$s[$i]){
+                    return false;
+                }
+            }
+        }
+        if(empty($aTmp)){
+            return true;
+        }
+    }
+}
