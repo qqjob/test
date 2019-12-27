@@ -1,0 +1,26 @@
+class Solution {
+
+    /**
+     * @param Integer $n
+     * @return String
+     */
+    function countAndSay($n) {
+        $count_seq='1';
+        if($n==1){
+            return $count_seq;
+        }
+        for($i=2;$i<=$n;$i++){
+            $same_str=[];
+            $new_count_seq='';
+           for($j=0;$j<=strlen($count_seq);$j++){
+               if(!empty($same_str) && $count_seq[$j] != end($same_str)){                 
+                   $new_count_seq .=count($same_str).end($same_str);
+                   $same_str=[];
+               }
+               $same_str[]=$count_seq[$j];
+           }
+           $count_seq=$new_count_seq;
+        }
+        return $count_seq;
+    }
+}
