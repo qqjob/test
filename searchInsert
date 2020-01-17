@@ -1,0 +1,18 @@
+class Solution {
+
+    /**
+     * @param Integer[] $nums
+     * @param Integer $target
+     * @return Integer
+     */
+    function searchInsert($nums, $target) {
+        $position=count($nums);
+        for($i=0;$i<$position;$i++){
+            if($nums[$i] == $target || $nums[$i]>$target){
+                $position=$i;
+                break;
+            }
+        }
+        return $position;
+    }
+}
